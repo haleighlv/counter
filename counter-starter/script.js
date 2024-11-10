@@ -22,8 +22,3 @@ const minus = (step) => {
         numberElement.innerText = number;
 };
 
-function reset() {
-    let number = 0;
-    document.getElementById("number").innerHTML = number;
-    console.log("reset" + " " + (parseInt(0)));
-}
