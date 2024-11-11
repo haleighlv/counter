@@ -35,7 +35,9 @@ const addItem = () => {
     let item = document.getElementById("new-item-text").value;
     shoppingListItems = [...shoppingListItems, item];
     updateItems();
+    let clear = document.getElementById("new-item-text").placeholder = "";
 };
+
 
 const clearItems = () => {
     // First we get the list element
@@ -44,6 +46,4 @@ const clearItems = () => {
     listElement.innerHTML = "";
 };
 
-document.getElementById("new-item-button").addEventListener("click", function() {
-    document.getElementById("new-item-text").placeholder = "";
-}) ;
+
