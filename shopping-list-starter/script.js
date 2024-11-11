@@ -44,8 +44,6 @@ const clearItems = () => {
     listElement.innerHTML = "";
 };
 
-function clearPlaceholder() {
-    const inputField = document.getElementById("new-item-text");
-    inputField.value = " ";
-
-}
+document.getElementById("new-item-button").addEventListener("click", function() {
+    document.getElementById("new-item-text").placeholder = "";
+}) ;
