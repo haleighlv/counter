@@ -1,49 +1,36 @@
-
 let shoppingListItems = ["milk", "eggs", "bread"];
 
-const updateItems = () => {
-    // First we get the list element
-let listElement = document.getElementById("shopping-list-items");
- // Then we clear it of any existing items
-listElement.innerHTML = "";
+const addItem = () => {
+    let item = document.getElementById("new-item-text").value.trim();
+    shoppingListItems.push(item);
+    console.log(shoppingListItems);
+    updateItems();
+};
 
- // Then we loop through the shopping list items and add them to the list
+const updateItems = () => {
+    // locate the li
+    let listElement = document.getElementById("shopping-list-items");
+    // clear the li of any existing items
+    listElement.innerHTML = "";
+
+    // loop through the shopping list items and add them to the list
     for (const shoppingItem of shoppingListItems) {
         let itemElement = document.createElement("li");
         itemElement.innerText = shoppingItem;
         listElement.appendChild(itemElement);
     }
-    };
 
-    let listElement = document.getElementById("shopping-list-items");
-    updateItems()
- //   for (const shoppingItem of shoppingListItems) {
-        //console.log(shoppingItem);
-        // We create a list element
-    //let itemElement = document.createElement("li");
+    // clear the input field after adding the item
+    const inputElement = document.getElementById("new-item-text");
+    inputElement.value = "";
+    inputElement.placeholder = "";
+};
 
-    // Add the inner text to the list element
-    //itemElement.innerText = shoppingItem;
-
-    //Add the list element to the ul
-   // listElement.appendChild(itemElement);
-// }
-
-
-
-const addItem = () => {
-    let item = document.getElementById("new-item-text").value;
-    shoppingListItems = [...shoppingListItems, item];
+const clearList = () => {
+    // Clear the shopping list items from the array and update the list on the page
+    shoppingListItems = [];
     updateItems();
-    let clear = document.getElementById("new-item-text").placeholder = "";
 };
 
-
-const clearItems = () => {
-    // First we get the list element
-    let listElement = document.getElementById("shopping-list-items");
-    // Then we clear it of any existing items
-    listElement.innerHTML = "";
-};
-
-
+// call the update items function immediately without any interaction on the page (make sure function is declared above)
+updateItems();
